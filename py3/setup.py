@@ -19,7 +19,7 @@ def longDescription():
 
 
 # __version__ = get_version('unisos/icm/__init__.py')
-__version__ = '0.4'
+__version__ = '0.7'
 
 
 requires = [
@@ -38,9 +38,9 @@ scripts = [
 
 
 setuptools.setup(
-    name='bisos2.examples',
+    name='bisos.examples',
     version=__version__,
-    namespace_packages=['bisos2'],
+    namespace_packages=['bisos'],
     packages=setuptools.find_packages(),
     scripts=scripts,
     # data_files=[

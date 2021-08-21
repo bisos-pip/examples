@@ -16,7 +16,7 @@ SEED="
 *  /[dblock]/ /Seed/ :: [[file:/bisos/core/bsip/bin/seedFtoCommon.sh]] |
 "
 FILE="
-*  /This File/ :: /bisos/git/auth/bxRepos/bisos-pip/examples/py2/ftoProc.sh
+*  /This File/ :: /bisos/git/auth/bxRepos/bisos-pip/examples/py3/ftoProc.sh
 "
 if [ "${loadFiles}" == "" ] ; then
     /bisos/core/bsip/bin/seedFtoCommon.sh -l $0 "$@"
@@ -58,9 +58,9 @@ _CommentEnd_
 # {{{ DBLOCK-nodesList
 nodesList="
 dist
-bisos2.examples.egg-info
-bisos2
+bisos.examples.egg-info
 bin
+bisos
 "
 # }}} DBLOCK-nodesList
 ####+END:

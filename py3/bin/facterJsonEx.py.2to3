@@ -1,0 +1,24 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./examples/py3/bin/facterJsonEx.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./examples/py3/bin/facterJsonEx.py
+--- ./examples/py3/bin/facterJsonEx.py	(original)
++++ ./examples/py3/bin/facterJsonEx.py	(refactored)
+@@ -8,10 +8,10 @@
+ 
+ y = json.loads(subprocess.check_output(['facter', '--json']))
+ 
+-print(dir(y))
++print((dir(y)))
+ 
+ print(y)
+ 
+-print(y['kernel'])
+-print(y['os'])
+-print(y['networking'])
++print((y['kernel']))
++print((y['os']))
++print((y['networking']))

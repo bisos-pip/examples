@@ -1,0 +1,8 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Can't parse ./examples/py3/bisos/examples/icmLibPkgBegin.py: ParseError: bad input: type=5, value='        ', context=('\n####+BEGIN: bx:icm:python:cmnd:subSection :title "Dev And Testing"\n', (245, 0))
+RefactoringTool: No files need to be modified.
+RefactoringTool: There was 1 error:
+RefactoringTool: Can't parse ./examples/py3/bisos/examples/icmLibPkgBegin.py: ParseError: bad input: type=5, value='        ', context=('\n####+BEGIN: bx:icm:python:cmnd:subSection :title "Dev And Testing"\n', (245, 0))

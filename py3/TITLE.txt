@@ -1,0 +1,3 @@
+bisos.examples: python libraies, python scripts and Interactive Command Modules (ICM) to provide templates and to illustrate, examine and test BISOS (ByStar Internet Services OS) features.
+
+

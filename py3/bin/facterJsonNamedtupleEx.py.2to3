@@ -1,0 +1,27 @@
+RefactoringTool: Skipping optional fixer: buffer
+RefactoringTool: Skipping optional fixer: idioms
+RefactoringTool: Skipping optional fixer: set_literal
+RefactoringTool: Skipping optional fixer: ws_comma
+RefactoringTool: Refactored ./examples/py3/bin/facterJsonNamedtupleEx.py
+RefactoringTool: Files that were modified:
+RefactoringTool: ./examples/py3/bin/facterJsonNamedtupleEx.py
+--- ./examples/py3/bin/facterJsonNamedtupleEx.py	(original)
++++ ./examples/py3/bin/facterJsonNamedtupleEx.py	(refactored)
+@@ -8,12 +8,12 @@
+ 
+ import collections
+ 
+-y = json.loads(subprocess.check_output(['facter', '--json']), object_hook=lambda d: collections.namedtuple('Factset', d.keys(), rename=True)(*d.values()))
++y = json.loads(subprocess.check_output(['facter', '--json']), object_hook=lambda d: collections.namedtuple('Factset', list(d.keys()), rename=True)(*list(d.values())))
+ 
+-print(y.networking.primary)
++print((y.networking.primary))
+ 
+-print(dir(y))
++print((dir(y)))
+ print(y)
+ 
+-print(y.kernel)
+-print(y.networking)
++print((y.kernel))
++print((y.networking))
