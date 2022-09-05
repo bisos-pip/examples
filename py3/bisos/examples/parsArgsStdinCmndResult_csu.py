@@ -154,7 +154,7 @@ def examples_csu(
 #+end_org """
 ####+END:
 
-####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "parsArgsStdinCmndResult" :comment "stdin as input" :parsMand "par1Example" :parsOpt "par2Example" :argsMin 1 :argsMax 9999 :pyInv "methodInvokeArg"
+####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "parsArgsStdinCmndResult" :extent "default" :comment "stdin as input" :parsMand "par1Example" :parsOpt "par2Example" :argsMin 1 :argsMax 9999 :pyInv "methodInvokeArg"
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<parsArgsStdinCmndResult>> =stdin as input=parsMand=par1Example parsOpt=par2Example argsMin=1 argsMax=9999 pyInv=methodInvokeArg
 #+end_org """
