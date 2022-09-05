@@ -23,7 +23,7 @@ __version__ = '0.7'
 
 
 requires = [
-    'unisos.icm',
+#    'unisos.icm',
 ]
 
 
