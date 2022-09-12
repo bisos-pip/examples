@@ -27,7 +27,7 @@
 #+end_org """
 import typing
 csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['parsArgsStdinCmndResult_csu'], }
-csInfo['version'] = '202209050547'
+csInfo['version'] = '202209103338'
 csInfo['status']  = 'inUse'
 csInfo['panel'] = 'parsArgsStdinCmndResult_csu-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
@@ -63,9 +63,9 @@ Module description comes here.
 ####+END:
 
 ####+BEGINNOT: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/importUcfIcmBleepG.py"
-from bisos import cs
-from bisos import io
-from bisos import bpf
+from bisos.b import cs
+from bisos.b import io
+from bisos import b
 ####+END:
 
 #G = cs.globalContext.get()
@@ -158,24 +158,21 @@ def examples_csu(
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<parsArgsStdinCmndResult>> =stdin as input=parsMand=par1Example parsOpt=par2Example argsMin=1 argsMax=9999 pyInv=methodInvokeArg
 #+end_org """
-class parsArgsStdinCmndResult(cs.Cmnd):
+class parsArgsStdinCmndResult(b.cs.Cmnd):
     cmndParamsMandatory = [ 'par1Example', ]
     cmndParamsOptional = [ 'par2Example', ]
     cmndArgsLen = {'Min': 1, 'Max': 9999,}
 
-    @io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: cs.RtInvoker,
-             cmndOutcome: bpf.op.Outcome,
+             rtInv: b.cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
              par1Example: typing.Optional[str]=None,  # Cs Mandatory Param
              par2Example: typing.Optional[str]=None,  # Cs Optional Param
              argsList: typing.Optional[list[str]]=None,  # CsArgs
              methodInvokeArg: typing.Any=None,   # pyInv Argument
-    ) -> bpf.op.Outcome:
+    ) -> b.op.Outcome:
         """stdin as input"""
-        callParamsDict = {'par1Example': par1Example, 'par2Example': par2Example, }
-        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, argsList).isProblematic():
-            return io.eh.badOutcome(cmndOutcome)
 ####+END:
         self.cmndDocStr(f""" #+begin_org
 ** [[elisp:(org-cycle)][| *CmndDesc:* | ]] This is an example of a CmndSvc with lots of features.
@@ -206,7 +203,7 @@ Variations of this are captured as snippets to be used.
         actionAndArgs = f"""{action} {actionArgsStr}"""
 
 
-        bpf.comment.orgMode(""" #+begin_org
+        b.comment.orgMode(""" #+begin_org
 *****  [[elisp:(org-cycle)][| *Note:* | ]] Next we take in stdin, when interactive.
 After that, we print the results and then provide a result in =cmndOutcome=.
         #+end_org """)
@@ -219,7 +216,7 @@ After that, we print the results and then provide a result in =cmndOutcome=.
         print(f"cmndParams= {par1Example} {par2Example}")
 
         return cmndOutcome.set(
-            opError=bpf.op.OpError.Success,
+            opError=b.op.OpError.Success,
             opResults="cmnd results come here",
         )
 
@@ -255,20 +252,17 @@ After that, we print the results and then provide a result in =cmndOutcome=.
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<pyCmndInvOf_parsArgsStdinCmndResult>>parsMand= parsOpt= argsMin=0 argsMax=0 pyInv=
 #+end_org """
-class pyCmndInvOf_parsArgsStdinCmndResult(cs.Cmnd):
+class pyCmndInvOf_parsArgsStdinCmndResult(b.cs.Cmnd):
     cmndParamsMandatory = [ ]
     cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
-    @io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: cs.RtInvoker,
-             cmndOutcome: bpf.op.Outcome,
-    ) -> bpf.op.Outcome:
+             rtInv: b.cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
+    ) -> b.op.Outcome:
 
-        callParamsDict = {}
-        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
-            return io.eh.badOutcome(cmndOutcome)
 ####+END:
         self.cmndDocStr(f""" #+begin_org
 ** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  A starting point command.

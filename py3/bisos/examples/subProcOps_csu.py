@@ -27,7 +27,7 @@
 #+end_org """
 import typing
 csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['subProcOps_csu'], }
-csInfo['version'] = '202209050701'
+csInfo['version'] = '202209103345'
 csInfo['status']  = 'inUse'
 csInfo['panel'] = 'subProcOps_csu-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
@@ -63,9 +63,9 @@ Module description comes here.
 ####+END:
 
 ####+BEGINNOT: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/importUcfIcmBleepG.py"
-from bisos import cs
-from bisos import io
-from bisos import bpf
+from bisos.b import cs
+from bisos.b import io
+from bisos import b
 ####+END:
 
 G = cs.globalContext.get()
@@ -137,25 +137,22 @@ def examples_csu(
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<subProcOpsWithArgs>> =stdin as input=parsMand= parsOpt=subProcPar1 argsMin=1 argsMax=9999 pyInv=
 #+end_org """
-class subProcOpsWithArgs(cs.Cmnd):
+class subProcOpsWithArgs(b.cs.Cmnd):
     cmndParamsMandatory = [ ]
     cmndParamsOptional = [ 'subProcPar1', ]
     cmndArgsLen = {'Min': 1, 'Max': 9999,}
 
-    @io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: cs.RtInvoker,
-             cmndOutcome: bpf.op.Outcome,
+             rtInv: b.cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
              subProcPar1: typing.Optional[str]=None,  # Cs Optional Param
              argsList: typing.Optional[list[str]]=None,  # CsArgs
-    ) -> bpf.op.Outcome:
+    ) -> b.op.Outcome:
         """stdin as input"""
-        callParamsDict = {'subProcPar1': subProcPar1, }
-        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, argsList).isProblematic():
-            return io.eh.badOutcome(cmndOutcome)
 ####+END:
         self.cmndDocStr(f""" #+begin_org
-** [[elisp:(org-cycle)][| *CmndDesc:* | ]] examples and unit smoke test for file: ../bisos/bpf/subProc.py
+** [[elisp:(org-cycle)][| *CmndDesc:* | ]] examples and unit smoke test for file: ../bisos/b/subProc.py
 
         This is an example of a CmndSvc with lots of features.
 The features include:
@@ -183,7 +180,7 @@ Variations of this are captured as snippets to be used.
         actionAndArgs = f"""{action} {actionArgsStr}"""
 
 
-        bpf.comment.orgMode(""" #+begin_org
+        b.comment.orgMode(""" #+begin_org
 *****  [[elisp:(org-cycle)][| *Note:* | ]] subProc is Wrapped Within an Operation.
 So, the outcome is the invoker's and the stdout result can be checked and assigned.
 This is similar to Bash's  resStr=$(${actionAndArgs})
@@ -191,7 +188,7 @@ stderr is captured in cmndOutcome.stderr.
 The exit code is captured in cmndOutcome.exitCode.
         #+end_org """)
 
-        if not (resStr := bpf.subProc.WOpW(invedBy=self, log=1).bash(
+        if not (resStr := b.subProc.WOpW(invedBy=self, log=1).bash(
                 f"""{actionAndArgs}""",
         ).stdout):  return(io.eh.badOutcome(cmndOutcome))
 
@@ -200,37 +197,37 @@ The exit code is captured in cmndOutcome.exitCode.
         subProcInFuncReturningOutcome(f"""{actionAndArgs}""")
 
 
-        if not (resStr := bpf.subProc.Op(outcome=cmndOutcome, log=1).bash(
+        if not (resStr := b.subProc.Op(outcome=cmndOutcome, log=1).bash(
                 f"""echo Hello There""",
         ).stdout):  return(io.eh.badOutcome(cmndOutcome))
 
         print(resStr)
 
-        if bpf.subProc.Op(outcome=cmndOutcome, log=1).bash(
+        if b.subProc.Op(outcome=cmndOutcome, log=1).bash(
                 """echo Hello Here And There""",
         ).isProblematic():  return(io.eh.badOutcome(cmndOutcome))
 
         print(cmndOutcome.stdout)
 
-        if bpf.subProc.Op(outcome=cmndOutcome, log=1).exec(
+        if b.subProc.Op(outcome=cmndOutcome, log=1).exec(
                 """pwd""",
         ).isProblematic():  return(io.eh.badOutcome(cmndOutcome))
 
         print(cmndOutcome.stdout)
 
-        if bpf.subProc.Op(outcome=cmndOutcome, cd="/var/log", log=1).bash(
+        if b.subProc.Op(outcome=cmndOutcome, cd="/var/log", log=1).bash(
                 """pwd""",
         ).isProblematic():  return(io.eh.badOutcome(cmndOutcome))
 
         print(cmndOutcome.stdout)
 
-        if bpf.subProc.Op(outcome=cmndOutcome, cd="/var/log", uid='root', log=1).bash(
+        if b.subProc.Op(outcome=cmndOutcome, cd="/var/log", uid='root', log=1).bash(
                 """id; pwd""",
         ).isProblematic():  return(io.eh.badOutcome(cmndOutcome))
 
         print(cmndOutcome.stdout)
 
-        atAsSubProcOp = bpf.subProc.Op(outcome=cmndOutcome, cd="/var/log", uid='root', log=1)
+        atAsSubProcOp = b.subProc.Op(outcome=cmndOutcome, cd="/var/log", uid='root', log=1)
 
         if atAsSubProcOp.bash(
                 """id; pwd; whoami""",
@@ -238,16 +235,16 @@ The exit code is captured in cmndOutcome.exitCode.
 
         print(cmndOutcome.stdout)
 
-        if bpf.subProc.opLog.bash(
+        if b.subProc.opLog.bash(
                 """id; pwd; whoami""",
-        ).isProblematic():  return(io.eh.badOutcome(bpf.subProc.opLog.outcome))
+        ).isProblematic():  return(io.eh.badOutcome(b.subProc.opLog.outcome))
 
-        print(bpf.subProc.opLog.outcome.stdout)
+        print(b.subProc.opLog.outcome.stdout)
 
 
 
         return cmndOutcome.set(
-            opError=bpf.op.OpError.Success,
+            opError=b.op.OpError.Success,
             opResults="cmnd results come here",
         )
 
@@ -288,12 +285,12 @@ The exit code is captured in cmndOutcome.exitCode.
 def subProcInFuncReturningOutcome(
 ####+END:
         cmndStr: str,
-) ->  bpf.op.Outcome:
+) ->  b.op.Outcome:
     """ #+begin_org
 ** [[elisp:(org-cycle)][| *DocStr | ]
     #+end_org """
 
-    outcome =  bpf.subProc.WOpW(invedBy=None, log=1).bash(
+    outcome =  b.subProc.WOpW(invedBy=None, log=1).bash(
         f"""{cmndStr}""")
 
     print(outcome.stdout)

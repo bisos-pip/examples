@@ -27,7 +27,7 @@
 #+end_org """
 import typing
 csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['io_csu'], }
-csInfo['version'] = '202209050448'
+csInfo['version'] = '202209103336'
 csInfo['status']  = 'inUse'
 csInfo['panel'] = 'io_csu-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
@@ -63,9 +63,9 @@ Module description comes here.
 ####+END:
 
 ####+BEGINNOT: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/importUcfIcmBleepG.py"
-from bisos import cs
-from bisos import io
-from bisos import bpf
+from bisos.b import cs
+from bisos.b import io
+from bisos import b
 ####+END:
 
 
@@ -109,24 +109,21 @@ def examples_csu(
 #+end_org """
 ####+END:
 
-####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "outStreamsExamples" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
+####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "outStreamsExamples" :extent "mini" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<outStreamsExamples>>parsMand= parsOpt= argsMin=0 argsMax=0 pyInv=
 #+end_org """
-class outStreamsExamples(cs.Cmnd):
+class outStreamsExamples(b.cs.Cmnd):
     cmndParamsMandatory = [ ]
     cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
-    @io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: cs.RtInvoker,
-             cmndOutcome: bpf.op.Outcome,
-    ) -> bpf.op.Outcome:
+             rtInv: b.cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
+    ) -> b.op.Outcome:
 
-        callParamsDict = {}
-        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
-            return io.eh.badOutcome(cmndOutcome)
 ####+END:
         self.cmndDocStr(f""" #+begin_org
 ** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Example of using built-in features of an CMND in an ICM.
@@ -143,7 +140,7 @@ class outStreamsExamples(cs.Cmnd):
 
         logger = io.log.Control().loggerGet()
 
-        #logger.debug('Raw Logging' + bpf.ast.stackFrameInfoGet(1) )
+        #logger.debug('Raw Logging' + b.ast.stackFrameInfoGet(1) )
         logger.debug('Raw Logging')
         io.tm.here('Here' + ' Tracking')
         io.tm.note('UnHere Tracking')

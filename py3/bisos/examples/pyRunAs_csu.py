@@ -36,7 +36,7 @@ csInfo['moduleName'] = "pyRunAs_csu"
 ####+END:
 
 ####+BEGIN: bx:cs:py:version-timestamp :style "date"
-csInfo['version'] = "202209050620"
+csInfo['version'] = "202209103343"
 ####+END:
 
 ####+BEGIN: bx:cs:py:status :status "Production"
@@ -93,16 +93,16 @@ csInfo['cmndParts'] = "IcmCmndParts[common] IcmCmndParts[param]"
 import collections
 
 ####+BEGINNOT: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/importUcfIcmBleepG.py"
-from bisos import cs
-from bisos import io
-from bisos import bpf
+from bisos.b import cs
+from bisos.b import io
+from bisos import b
 ####+END:
 
 
 #from bisos.transit import runCallable
 from bisos.transit import sudoDeco
 #from bisos.transit import pyRunAs
-from bisos.bpf import pyRunAs
+from bisos.b import pyRunAs
 
 
 ####+BEGIN: bx:cs:python:section :title "= =Framework::= Options, Arguments and Examples Specifications ="
@@ -140,20 +140,17 @@ def examples_csu(
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<runAsUser>>parsMand= parsOpt= argsMin=0 argsMax=0 pyInv=
 #+end_org """
-class runAsUser(cs.Cmnd):
+class runAsUser(b.cs.Cmnd):
     cmndParamsMandatory = [ ]
     cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
-    @io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: cs.RtInvoker,
-             cmndOutcome: bpf.op.Outcome,
-    ) -> bpf.op.Outcome:
+             rtInv: b.cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
+    ) -> b.op.Outcome:
 
-        callParamsDict = {}
-        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
-            return io.eh.badOutcome(cmndOutcome)
 ####+END:
 
         #res = funcOfAsUser("arg1")

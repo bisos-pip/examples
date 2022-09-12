@@ -36,7 +36,7 @@ csInfo['moduleName'] = "pattern_csu"
 ####+END:
 
 ####+BEGIN: bx:cs:py:version-timestamp :style "date"
-csInfo['version'] = "202209053259"
+csInfo['version'] = "202209103339"
 ####+END:
 
 ####+BEGIN: bx:cs:py:status :status "Production"
@@ -88,14 +88,16 @@ csInfo['cmndParts'] = "IcmCmndParts[common] IcmCmndParts[param]"
 #+end_org """
 ####+END:
 
+# __all__ = []
 
 # import os
 import collections
 
 ####+BEGINNOT: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/importUcfIcmBleepG.py"
-from bisos import cs
-from bisos import io
-from bisos import bpf
+from bisos.b import cs
+# import bisos.cs.cs as cs
+#from bisos.b import io
+from bisos import b
 ####+END:
 
 from bisos.transit import pattern
@@ -113,7 +115,7 @@ from bisos.transit import pattern
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-extTyped [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/ deco=track  [[elisp:(org-cycle)][| ]]
 #+end_org """
-@io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+@b.io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
 def examples_csu(
 ####+END:
     sectionTitle: typing.AnyStr = "",
@@ -136,20 +138,17 @@ def examples_csu(
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<sameInstanceEx>>parsMand= parsOpt= argsMin=0 argsMax=0 pyInv=
 #+end_org """
-class sameInstanceEx(cs.Cmnd):
+class sameInstanceEx(b.cs.Cmnd):
     cmndParamsMandatory = [ ]
     cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
-    @io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: cs.RtInvoker,
-             cmndOutcome: bpf.op.Outcome,
-    ) -> bpf.op.Outcome:
+             rtInv: b.cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
+    ) -> b.op.Outcome:
 
-        callParamsDict = {}
-        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
-            return io.eh.badOutcome(cmndOutcome)
 ####+END:
 
         first_aInst = pattern.sameInstance(ClsA, 'arg1',)
@@ -177,7 +176,7 @@ class sameInstanceEx(cs.Cmnd):
     """
 **  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Method-anyOrNone :: /cmndDocStr/ retType=bool argsList=nil deco=default  [[elisp:(org-cycle)][| ]]
 #+end_org """
-    @io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+    @b.io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
     def cmndDocStr(self):
 ####+END:
         return """
