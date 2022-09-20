@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """ #+begin_org
-* *[Summary]* :: A =CS-Lib= for
+* ~[Summary]~ :: A =CS-Lib= for
 #+end_org """
 
 """ #+begin_org
@@ -36,10 +36,9 @@
 """ #+begin_org
 * *[[elisp:(org-cycle)][| Particulars-csInfo |]]*
 #+end_org """
-from sys import base_exec_prefix
 import typing
 csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['io_csu'], }
-csInfo['version'] = '202209103336'
+csInfo['version'] = '202209124319'
 csInfo['status']  = 'inUse'
 csInfo['panel'] = 'io_csu-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
@@ -47,7 +46,7 @@ csInfo['cmndParts'] = 'IcmCmndParts[common] IcmCmndParts[param]'
 ####+END:
 
 """ #+begin_org
-* /[[elisp:(org-cycle)][| Description |]]/ :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/COMEEGA/_nodeBase_/fullUsagePanel-en.org][BISOS COMEEGA Panel]]
+* [[elisp:(org-cycle)][| ~Description~ |]] :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/COMEEGA/_nodeBase_/fullUsagePanel-en.org][BISOS COMEEGA Panel]]
 Module description comes here.
 ** Relevant Panels:
 ** Status: In use with blee3
@@ -108,13 +107,16 @@ def examples_csu(
     def menuItem(verbosity): cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity=verbosity) # 'little' or 'none'
 
     if sectionTitle == 'default':
-        cs.examples.menuChapter('*Input and Output Examples CMNDs*')
+        cs.examples.menuChapter('*Py Ro Invoker Commands*')
 
-    cmndName = "outStreamsExamples" ; cmndArgs = "" ;
+    cmndName = "roPyExInvoker" ; cmndArgs = "" ;
     cps = collections.OrderedDict() ; # cps['icmsPkgName'] = icmsPkgName
     cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity='little')
     cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity='full')
 
+    cmndName = "roPyExPerformer" ; cmndArgs = "" ;
+    cps = collections.OrderedDict() ; # cps['icmsPkgName'] = icmsPkgName
+    cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity='little')
 
 
  
@@ -124,14 +126,15 @@ def examples_csu(
 #+end_org """
 ####+END:
 
-####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "outStreamsExamples" :extent "mini" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
+####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "roPyExInvoker" :ro "noCli"  :extent "verify" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<outStreamsExamples>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=cli pyInv=
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<roPyExInvoker>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=noCli pyInv=
 #+end_org """
-class outStreamsExamples(cs.Cmnd):
+class roPyExInvoker(cs.Cmnd):
     cmndParamsMandatory = [ ]
     cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
+    rtInvConstraints = cs.rtInvoker.RtInvoker.new_noRo() # NO RO From CLI
 
     @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
@@ -139,52 +142,78 @@ class outStreamsExamples(cs.Cmnd):
              cmndOutcome: b.op.Outcome,
     ) -> b.op.Outcome:
 
+        callParamsDict = {}
+        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
+            return b_io.eh.badOutcome(cmndOutcome)
 ####+END:
         self.cmndDocStr(f""" #+begin_org
 ** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Example of using built-in features of an CMND in an ICM.
-
-     - The icm.callableEntryEnhancer() must be included to enable --docstring.
-     - Decorator @io.track.subjectToTracking() enables Call Monitoring.
-     - icm.do() enables invokation monitoring
-     - icm.TM_ enables tracking/tracing using the LOG_ facility.
-** TODO Missing Features :: ANN, io.eh. DryRun LOG_ description.
         #+end_org """)
 
-        #G = cs.globalContext.get()
-        b_io.pr(f"{cs.G.icmMyName()} --- instead of print")
+        b_io.pr(f"{self.__class__.__name__} is constrained with noRo and can only run locally.")
+        b_io.pr(f"{self.__class__.__name__} now pyInvokes a remote command ")
 
-        logger = b_io.log.Control().loggerGet()
 
-        #logger.debug('Raw Logging' + b.ast.stackFrameInfoGet(1) )
-        #logger.debug('Raw Logging')
-        b_io.tm.here('Here' + ' Tracking')
-        b_io.tm.note('UnHere Tracking')
+        roSapPath = "/bisos/var/cs/ro/sap/csRo-manage.cs/localhost/rpyc/default"
 
-        #for thisArg in icm.icmRunArgs.cmndArgs:
-            #print ('cmndExample() received cmndArg=' + thisArg)
+        # NOTYET, We should get back a outcome, but we are not.
+        roPyExPerformer().cmnd(
+            rtInv=rtInv,
+            cmndOutcome=cmndOutcome,
+            roSapPath=roSapPath,
+        )
 
-        # icm.do( intrusiveFunc, ' With Some Parameter' )
-
+        b_io.pr(f"{self.__class__.__name__} After remote execution.")
 
         return(cmndOutcome)
 
-####+BEGIN: b:py3:cs:func/typing :funcName "intrusiveFunc" :funcType "anyOrNone" :retType "bool" :deco "default" :argsList "arg"
+####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "roPyExPerformer" :ro "py"  :extent "verify" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-anyOrNone [[elisp:(outline-show-subtree+toggle)][||]] /intrusiveFunc/ deco=default  deco=default   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<roPyExPerformer>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=py pyInv=
 #+end_org """
-@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
-def intrusiveFunc(
-####+END:
-        arg,
-):
-    """Example of an intrusive function that can be subject to dryRun.
-    Could also be done with @subjectToDryRun
-    """
-    if icm.icmRunArgs_isRunModeDryRun():
-        print(( "Skipping This Intrusive Function" + arg ))
-        return
+class roPyExPerformer(cs.Cmnd):
+    cmndParamsMandatory = [ ]
+    cmndParamsOptional = [ ]
+    cmndArgsLen = {'Min': 0, 'Max': 0,}
+    rtInvConstraints = cs.rtInvoker.RtInvoker.new_noRo() # NO RO From CLI
 
-    print(( "Performing Some Intrusive Action" + arg ))
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    def cmnd(self,
+             rtInv: cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
+             roSapPath: typing.Optional[str]=None,  # RO pyInv Sap Path
+    ) -> b.op.Outcome:
+
+        callParamsDict = {}
+        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
+            return b_io.eh.badOutcome(cmndOutcome)
+
+        if roSapPath:
+            sapBaseFps = b.pattern.sameInstance(cs.ro.SapBase_FPs, roSapPath=roSapPath)
+            portNu = sapBaseFps.fps_getParam('perfPortNu')
+            cmndKwArgs = self.cmndCallTimeKwArgs()
+            cmndKwArgs.update({'rtInv': rtInv})
+            cmndKwArgs.update({'cmndOutcome': cmndOutcome})
+            print(cmndKwArgs)
+            outcome = cs.rpyc.csInvoke(
+                portNu.parValueGet(),
+                self.__class__,
+                **cmndKwArgs,
+            )
+            return outcome
+
+
+        # Remotely invoke this same command and return cmndOutcome
+####+END:
+        self.cmndDocStr(f""" #+begin_org
+** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Example of using built-in features of an CMND in an ICM.
+        #+end_org """)
+
+        b_io.pr(f"{self.__class__.__name__} is constrained with noRo and can only run locally.")
+        b_io.pr(f"{self.__class__.__name__} is also enabled for remote py invokaction. And will run remotely when pyInvoked.")
+
+
+        return(cmndOutcome)
 
 
 
