@@ -1,7 +1,17 @@
 # -*- coding: utf-8 -*-
 
 """ #+begin_org
-* *[Summary]* :: A =CS-Lib= for
+* ~[Summary]~ :: =CS-Lib= providing examples of class, params & args definitions & Cmnd & RO invocations.
+#+end_org """
+
+""" #+begin_org
+* [[elisp:(org-cycle)][| /Control Parameters Of This File/ |]] :: dblock controls and classifications
+#+BEGIN_SRC emacs-lisp
+(setq-local b:dblockControls t) ; (setq-local b:dblockControls nil)
+(put 'b:dblockControls 'py3:cs:Classification "cs-u") ; CS-Unit
+#+END_SRC
+#+RESULTS:
+: cs-u
 #+end_org """
 
 ####+BEGIN: b:prog:file/proclamations :outLevel 1
@@ -27,7 +37,7 @@
 #+end_org """
 import typing
 csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['parsArgsStdinCmndResult_csu'], }
-csInfo['version'] = '202209103338'
+csInfo['version'] = '202209205702'
 csInfo['status']  = 'inUse'
 csInfo['panel'] = 'parsArgsStdinCmndResult_csu-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
@@ -35,7 +45,7 @@ csInfo['cmndParts'] = 'IcmCmndParts[common] IcmCmndParts[param]'
 ####+END:
 
 """ #+begin_org
-* /[[elisp:(org-cycle)][| Description |]]/ :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/COMEEGA/_nodeBase_/fullUsagePanel-en.org][BISOS COMEEGA Panel]]
+* [[elisp:(org-cycle)][| ~Description~ |]] :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/COMEEGA/_nodeBase_/fullUsagePanel-en.org][BISOS COMEEGA Panel]]
 Module description comes here.
 ** Relevant Panels:
 ** Status: In use with blee3
@@ -62,16 +72,16 @@ Module description comes here.
 #+end_org """
 ####+END:
 
-####+BEGINNOT: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/importUcfIcmBleepG.py"
-from bisos.b import cs
-from bisos.b import io
+####+BEGIN: b:py3:cs:framework/imports :basedOn "classification"
+""" #+begin_org
+** Imports Based On Classification=cs-u
+#+end_org """
 from bisos import b
-####+END:
-
-#G = cs.globalContext.get()
+from bisos.b import cs
+from bisos.b import b_io
 
 import collections
-
+####+END:
 
 ####+BEGIN: bx:cs:py3:section :title "Common Parameters Specification"
 """ #+begin_org
@@ -118,25 +128,24 @@ def commonParamsSpecify(
 #+end_org """
 ####+END:
 
-####+BEGIN: bx:cs:py3:func :funcName "examples_csu" :funcType "eType" :retType "" :deco "default" :argsList ""
+####+BEGIN: b:py3:cs:func/typing :funcName "examples_csu" :funcType "eType" :retType "" :deco "default" :argsList ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-eType    [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/ deco=default  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/ deco=default  deco=default   [[elisp:(org-cycle)][| ]]
 #+end_org """
-@io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def examples_csu(
 ####+END:
         sectionTitle: typing.AnyStr = '',
 ) -> None:
     """ #+begin_org
-** [[elisp:(org-cycle)][| *DocStr | ] Examples of Service Access Instance Commands.
+** [[elisp:(org-cycle)][| *DocStr* |]] Examples of Service Access Instance Commands.
     #+end_org """
 
     def cpsInit(): return collections.OrderedDict()
     def menuItem(verbosity): cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity=verbosity) # 'little' or 'none'
 
     if sectionTitle == 'default':
-        cs.examples.menuChapter('*Input and Output Examples CMNDs*')
-
+        cs.examples.menuChapter('*Cmnds, RoCmnds, PyInv, PyRoInv With Params, Args, Stdin Producing Outcome*')
 
     icmWrapper = "echo HereComes Some ClearText | "
     cmndName = "parsArgsStdinCmndResult"
@@ -148,6 +157,19 @@ def examples_csu(
     cmndName = "pyCmndInvOf_parsArgsStdinCmndResult" ; cps = cpsInit() ; cmndArgs = "" ;
     menuItem(verbosity='none')
 
+    # if sectionTitle == 'default':
+    #    cs.examples.menuChapter('*Py Ro Invoker Commands*')
+
+    cmndName = "roPyExInvoker" ; cmndArgs = "" ;
+    cps = collections.OrderedDict() ; # cps['icmsPkgName'] = icmsPkgName
+    cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity='little')
+    cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity='full')
+
+    cmndName = "roPyExPerformer" ; cmndArgs = "" ;
+    cps = collections.OrderedDict() ; # cps['icmsPkgName'] = icmsPkgName
+    cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity='little')
+
+
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep nil :title "CmndSvcs" :anchor ""  :extraInfo "Command Services Section"
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(outline-show-subtree+toggle)][| _CmndSvcs_: |]]  Command Services Section  [[elisp:(org-shifttab)][<)]] E|
@@ -156,16 +178,16 @@ def examples_csu(
 
 ####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "parsArgsStdinCmndResult" :extent "default" :comment "stdin as input" :parsMand "par1Example" :parsOpt "par2Example" :argsMin 1 :argsMax 9999 :pyInv "methodInvokeArg"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<parsArgsStdinCmndResult>> =stdin as input=parsMand=par1Example parsOpt=par2Example argsMin=1 argsMax=9999 pyInv=methodInvokeArg
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<parsArgsStdinCmndResult>> =stdin as input=parsMand=par1Example parsOpt=par2Example argsMin=1 argsMax=9999 ro=cli pyInv=methodInvokeArg
 #+end_org """
-class parsArgsStdinCmndResult(b.cs.Cmnd):
+class parsArgsStdinCmndResult(cs.Cmnd):
     cmndParamsMandatory = [ 'par1Example', ]
     cmndParamsOptional = [ 'par2Example', ]
     cmndArgsLen = {'Min': 1, 'Max': 9999,}
 
-    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: b.cs.RtInvoker,
+             rtInv: cs.RtInvoker,
              cmndOutcome: b.op.Outcome,
              par1Example: typing.Optional[str]=None,  # Cs Mandatory Param
              par2Example: typing.Optional[str]=None,  # Cs Optional Param
@@ -209,7 +231,7 @@ After that, we print the results and then provide a result in =cmndOutcome=.
         #+end_org """)
 
         if not methodInvokeArg:
-            methodInvokeArg = io.stdin.read()
+            methodInvokeArg = b_io.stdin.read()
 
         print(f"cmndArgs= {actionAndArgs}")
         print(f"stdin instead of methodInvokeArg = {methodInvokeArg}")
@@ -220,16 +242,15 @@ After that, we print the results and then provide a result in =cmndOutcome=.
             opResults="cmnd results come here",
         )
 
-
-####+BEGIN: bx:cs:py3:method :methodName "cmndArgsSpec" :methodType "anyOrNone" :retType "bool" :deco "default" :argsList ""
-    """
-**  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Method-anyOrNone :: /cmndArgsSpec/ retType=bool argsList=nil deco=default  [[elisp:(org-cycle)][| ]]
-#+end_org """
-    @io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-    def cmndArgsSpec(self):
+####+BEGIN: b:py3:cs:method/args :methodName "cmndArgsSpec" :methodType "anyOrNone" :retType "bool" :deco "default" :argsList "self"
+    """ #+begin_org
+**  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Mtd-T-anyOrNone [[elisp:(outline-show-subtree+toggle)][||]] /cmndArgsSpec/ deco=default  deco=default   [[elisp:(org-cycle)][| ]]
+    #+end_org """
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    def cmndArgsSpec(self, ):
 ####+END:
         """  #+begin_org
-** [[elisp:(org-cycle)][| *cmndArgsSpec:* | ]]
+*** [[elisp:(org-cycle)][| *cmndArgsSpec:* | ]] First arg defines rest
         #+end_org """
 
         cmndArgsSpecDict = cs.arg.CmndArgsSpecDict()
@@ -250,16 +271,16 @@ After that, we print the results and then provide a result in =cmndOutcome=.
 
 ####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "pyCmndInvOf_parsArgsStdinCmndResult" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<pyCmndInvOf_parsArgsStdinCmndResult>>parsMand= parsOpt= argsMin=0 argsMax=0 pyInv=
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<pyCmndInvOf_parsArgsStdinCmndResult>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=cli pyInv=
 #+end_org """
-class pyCmndInvOf_parsArgsStdinCmndResult(b.cs.Cmnd):
+class pyCmndInvOf_parsArgsStdinCmndResult(cs.Cmnd):
     cmndParamsMandatory = [ ]
     cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
-    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: b.cs.RtInvoker,
+             rtInv: cs.RtInvoker,
              cmndOutcome: b.op.Outcome,
     ) -> b.op.Outcome:
 
@@ -274,9 +295,102 @@ class pyCmndInvOf_parsArgsStdinCmndResult(b.cs.Cmnd):
                 par1Example="py_par1Val",
                 argsList=['echo', 'py_arg2Val'],
                 methodInvokeArg="py method invoke arg"
-        ).results): return(io.eh.badOutcome(cmndOutcome))
+        ).results): return(b_io.eh.badOutcome(cmndOutcome))
 
         return(cmndOutcome)
+
+
+####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "roPyExInvoker" :ro "noCli"  :extent "verify" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<roPyExInvoker>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=noCli pyInv=
+#+end_org """
+class roPyExInvoker(cs.Cmnd):
+    cmndParamsMandatory = [ ]
+    cmndParamsOptional = [ ]
+    cmndArgsLen = {'Min': 0, 'Max': 0,}
+    rtInvConstraints = cs.rtInvoker.RtInvoker.new_noRo() # NO RO From CLI
+
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    def cmnd(self,
+             rtInv: cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
+    ) -> b.op.Outcome:
+
+        callParamsDict = {}
+        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
+            return b_io.eh.badOutcome(cmndOutcome)
+####+END:
+        self.cmndDocStr(f""" #+begin_org
+** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Example of using built-in features of an CMND in an ICM.
+        #+end_org """)
+
+        # roPath
+        roSapPath = "/bisos/var/cs/ro/sap/csExamples.cs/localhost/rpyc/default"
+
+        b_io.pr(f"{self.__class__.__name__} is constrained with noRo and can only run locally.")
+        b_io.pr(f"{self.__class__.__name__} now pyInvokes a remote command at {roSapPath}")
+
+        # NOTYET, We should get back a outcome, but we are not.
+        roPyExPerformer().cmnd(
+            rtInv=rtInv,
+            cmndOutcome=cmndOutcome,
+            roSapPath=roSapPath,
+        )
+
+        b_io.pr(f"{self.__class__.__name__} After remote execution.")
+
+        return(cmndOutcome)
+
+
+# VALUABLE CODE HERE
+####+BEGINNOT: b:py3:cs:cmnd/classHead :cmndName "roPyExPerformer" :ro "py"  :extent "verify" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<roPyExPerformer>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=py pyInv=
+#+end_org """
+class roPyExPerformer(cs.Cmnd):
+    cmndParamsMandatory = [ ]
+    cmndParamsOptional = [ ]
+    cmndArgsLen = {'Min': 0, 'Max': 0,}
+    rtInvConstraints = cs.rtInvoker.RtInvoker.new_noRo() # NO RO From CLI
+
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    def cmnd(self,
+             rtInv: cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
+             roSapPath: typing.Optional[str]=None,  # RO pyInv Sap Path
+    ) -> b.op.Outcome:
+
+        callParamsDict = {}
+        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
+            return b_io.eh.badOutcome(cmndOutcome)
+
+        if roSapPath:
+            sapBaseFps = b.pattern.sameInstance(cs.ro.SapBase_FPs, roSapPath=roSapPath)
+            portNu = sapBaseFps.fps_getParam('perfPortNu')
+            cmndKwArgs = self.cmndCallTimeKwArgs()
+            cmndKwArgs.update({'rtInv': rtInv})
+            cmndKwArgs.update({'cmndOutcome': cmndOutcome})
+            print(f"PyRO at {roSapPath} with {cmndKwArgs}")
+            outcome = cs.rpyc.csInvoke(
+                portNu.parValueGet(),
+                self.__class__,
+                **cmndKwArgs,
+            )
+            return outcome
+
+        # Remotely invoke this same command and return cmndOutcome
+
+####+END:
+        self.cmndDocStr(f""" #+begin_org
+** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Example of using built-in features of an CMND in an ICM.
+        #+end_org """)
+
+        b_io.pr(f"{self.__class__.__name__} is constrained with noRo and can only run locally.")
+        b_io.pr(f"{self.__class__.__name__} is also enabled for remote py invokaction. And will run remotely when pyInvoked.")
+
+
+        return(cmndOutcome)
+
 
 
 
