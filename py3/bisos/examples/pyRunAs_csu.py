@@ -89,7 +89,7 @@ csInfo['cmndParts'] = "IcmCmndParts[common] IcmCmndParts[param]"
 ####+END:
 
 
-# import os
+import os
 import collections
 
 ####+BEGINNOT: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/importUcfIcmBleepG.py"
@@ -111,11 +111,11 @@ from bisos.b import pyRunAs
 """
 ####+END:
 
-####+BEGIN: bx:cs:py3:func :funcName "examples_csu" :funcType "extTyped" :deco "track"
+####+BEGIN: b:py3:cs:func/typing :funcName "examples_csu" :funcType "extTyped" :deco "track"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-extTyped [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/ deco=track  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-extTyped [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/  deco=track  [[elisp:(org-cycle)][| ]]
 #+end_org """
-@io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def examples_csu(
 ####+END:
     sectionTitle: typing.AnyStr = "",
@@ -138,19 +138,22 @@ def examples_csu(
 
 ####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "runAsUser" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<runAsUser>>parsMand= parsOpt= argsMin=0 argsMax=0 pyInv=
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<runAsUser>>  =verify= ro=cli   [[elisp:(org-cycle)][| ]]
 #+end_org """
-class runAsUser(b.cs.Cmnd):
+class runAsUser(cs.Cmnd):
     cmndParamsMandatory = [ ]
     cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
-    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: b.cs.RtInvoker,
+             rtInv: cs.RtInvoker,
              cmndOutcome: b.op.Outcome,
     ) -> b.op.Outcome:
 
+        callParamsDict = {}
+        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
+            return b_io.eh.badOutcome(cmndOutcome)
 ####+END:
 
         #res = funcOfAsUser("arg1")
@@ -162,8 +165,14 @@ class runAsUser(b.cs.Cmnd):
         res = funcOfPyRunAsUser("arg1")
         print(res)
 
-        pyRunAs.as_root_writeToFile("/tmp/tttt1", "Hello World")
-        print("ls -l /tmp/tttt1")
+        exFilePath = "/tmp/tttt1"
+
+        pyRunAs.as_root_writeToFile(exFilePath, "Hello World")
+        print(f"ls -l {exFilePath}")
+        os.system(f"ls -l {exFilePath}")
+
+        fileContent = pyRunAs.as_root_readFromFile(exFilePath)
+        print(fileContent)
 
         return cmndOutcome
 

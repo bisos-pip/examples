@@ -1,45 +1,45 @@
 # -*- coding: utf-8 -*-
 
 """ #+begin_org
-* *[Summary]* :: A =CS-Lib= for
+* ~[Summary]~ :: A =CS-Lib= for use of b_io.{tm,eh,log,stdout}
 #+end_org """
 
+####+BEGIN: b:py3:cs:file/dblockControls :classification "cs-u"
 """ #+begin_org
-* [[elisp:(org-cycle)][| /Control Parameters Of This File/ |]] :: dblock controls and classifications
+* [[elisp:(org-cycle)][| /Control Parameters Of This File/ |]] :: dblk ctrls classifications=cs-u
 #+BEGIN_SRC emacs-lisp
 (setq-local b:dblockControls t) ; (setq-local b:dblockControls nil)
-(put 'b:dblockControls 'py3:cs:Classification "cs-u") ; CS-Unit
+(put 'b:dblockControls 'py3:cs:Classification "cs-u") ; Main Multi-Unit CommandSvc
 #+END_SRC
 #+RESULTS:
 : cs-u
 #+end_org """
-
+####+END:
 
 ####+BEGIN: b:prog:file/proclamations :outLevel 1
 """ #+begin_org
-* *[[elisp:(org-cycle)][| Proclamations |]]* :: Libre-Halaal Software --- Part Of Blee ---  Poly-COMEEGA Format.
-** This is Libre-Halaal Software. © Libre-Halaal Foundation. Subject to AGPL.
-** It is not part of Emacs. It is part of Blee.
-** Best read and edited  with Poly-COMEEGA (Polymode Colaborative Org-Mode Enhance Emacs Generalized Authorship)
+* *[[elisp:(org-cycle)][| Proclamations |]]* :: Libre-Halaal Software --- Part Of BISOS ---  Poly-COMEEGA Format.
+** This is Libre-Halaal Software. © Neda Communications, Inc. Subject to AGPL.
+** It is part of BISOS (ByStar Internet Services OS)
+** Best read and edited  with Blee in Poly-COMEEGA (Polymode Colaborative Org-Mode Enhance Emacs Generalized Authorship)
 #+end_org """
 ####+END:
 
 ####+BEGIN: b:prog:file/particulars :authors ("./inserts/authors-mb.org")
 """ #+begin_org
 * *[[elisp:(org-cycle)][| Particulars |]]* :: Authors, version
-** This File: NOTYET
+** This File: /bisos/git/auth/bxRepos/bisos-pip/examples/py3/bisos/examples/io_csu.py
 ** Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
 #+end_org """
 ####+END:
 
-####+BEGIN: b:python:file/particulars-csInfo :status "inUse"
+####+BEGIN: b:py3:file/particulars-csInfo :status "inUse"
 """ #+begin_org
 * *[[elisp:(org-cycle)][| Particulars-csInfo |]]*
 #+end_org """
-from sys import base_exec_prefix
 import typing
 csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['io_csu'], }
-csInfo['version'] = '202209103336'
+csInfo['version'] = '202209231813'
 csInfo['status']  = 'inUse'
 csInfo['panel'] = 'io_csu-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
@@ -47,10 +47,10 @@ csInfo['cmndParts'] = 'IcmCmndParts[common] IcmCmndParts[param]'
 ####+END:
 
 """ #+begin_org
-* /[[elisp:(org-cycle)][| Description |]]/ :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/COMEEGA/_nodeBase_/fullUsagePanel-en.org][BISOS COMEEGA Panel]]
+* [[elisp:(org-cycle)][| ~Description~ |]] :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/COMEEGA/_nodeBase_/fullUsagePanel-en.org][BISOS COMEEGA Panel]]
 Module description comes here.
 ** Relevant Panels:
-** Status: In use with blee3
+** Status: In use with BISOS
 ** /[[elisp:(org-cycle)][| Planned Improvements |]]/ :
 *** TODO complete fileName in particulars.
 #+end_org """
@@ -85,6 +85,8 @@ from bisos.b import b_io
 import collections
 ####+END:
 
+#from sys import base_exec_prefix
+
 ####+BEGIN: bx:cs:py3:section :title "CS-Lib Examples"
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /Section/    [[elisp:(outline-show-subtree+toggle)][||]] *CS-Lib Examples*  [[elisp:(org-cycle)][| ]]
@@ -93,7 +95,7 @@ import collections
 
 ####+BEGIN: b:py3:cs:func/typing :funcName "examples_csu" :funcType "eType" :retType "" :deco "default" :argsList ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/ deco=default  deco=default   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/  deco=default  [[elisp:(org-cycle)][| ]]
 #+end_org """
 @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def examples_csu(
@@ -115,9 +117,6 @@ def examples_csu(
     cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity='little')
     cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity='full')
 
-
-
- 
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep nil :title "CmndSvcs" :anchor ""  :extraInfo "Command Services Section"
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(outline-show-subtree+toggle)][| _CmndSvcs_: |]]  Command Services Section  [[elisp:(org-shifttab)][<)]] E|
@@ -126,7 +125,7 @@ def examples_csu(
 
 ####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "outStreamsExamples" :extent "mini" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<outStreamsExamples>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=cli pyInv=
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<outStreamsExamples>>  =mini= ro=cli   [[elisp:(org-cycle)][| ]]
 #+end_org """
 class outStreamsExamples(cs.Cmnd):
     cmndParamsMandatory = [ ]
@@ -150,27 +149,29 @@ class outStreamsExamples(cs.Cmnd):
 ** TODO Missing Features :: ANN, io.eh. DryRun LOG_ description.
         #+end_org """)
 
-        #G = cs.globalContext.get()
         b_io.pr(f"{cs.G.icmMyName()} --- instead of print")
 
-        logger = b_io.log.Control().loggerGet()
+        b_io.tm.here(f"""Used for temporary debugging. Better than debug print statements.""")
+        b_io.tm.note(f"""Used for permanent tracing. Equivalent of permanent DEBUG statements.""")
 
-        #logger.debug('Raw Logging' + b.ast.stackFrameInfoGet(1) )
-        #logger.debug('Raw Logging')
-        b_io.tm.here('Here' + ' Tracking')
-        b_io.tm.note('UnHere Tracking')
+        logger = b_io.log.controller.loggerGet()
+        #b_io.log.controller.formatterBasic()
+        logger.debug(f"""Use of raw logger.debug through the basic formatter.""")
 
-        #for thisArg in icm.icmRunArgs.cmndArgs:
-            #print ('cmndExample() received cmndArg=' + thisArg)
+        cs.do( intrusiveFunc, ' With Some Parameter' )
 
-        # icm.do( intrusiveFunc, ' With Some Parameter' )
-
+        b_io.eh.critical_cmndArgsPositional(f"Description of the unexpected comes here.")
+        b_io.eh.critical_cmndArgsOptional(f"Description of the unexpected comes here.")
+        b_io.eh.critical_usageError(f"Description of the unexpected comes here.")
+        b_io.eh.problem_notyet(f"To be used when a feature has not been implemented yet..")
+        b_io.eh.problem_usageError(f"Description of the unexpected comes here.")
+        # b_io.eh.problem_usageError_wOp(cmndOutcome, f"Wrapped Op. Description of the unexpected comes here.")
 
         return(cmndOutcome)
 
 ####+BEGIN: b:py3:cs:func/typing :funcName "intrusiveFunc" :funcType "anyOrNone" :retType "bool" :deco "default" :argsList "arg"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-anyOrNone [[elisp:(outline-show-subtree+toggle)][||]] /intrusiveFunc/ deco=default  deco=default   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-anyOrNone [[elisp:(outline-show-subtree+toggle)][||]] /intrusiveFunc/  deco=default  [[elisp:(org-cycle)][| ]]
 #+end_org """
 @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def intrusiveFunc(
@@ -180,7 +181,7 @@ def intrusiveFunc(
     """Example of an intrusive function that can be subject to dryRun.
     Could also be done with @subjectToDryRun
     """
-    if icm.icmRunArgs_isRunModeDryRun():
+    if cs.icmRunArgs_isRunModeDryRun():
         print(( "Skipping This Intrusive Function" + arg ))
         return
 

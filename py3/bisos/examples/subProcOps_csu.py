@@ -105,11 +105,11 @@ def commonParamsSpecify(
 #+end_org """
 ####+END:
 
-####+BEGIN: bx:cs:py3:func :funcName "examples_csu" :funcType "eType" :retType "" :deco "default" :argsList ""
+####+BEGIN: b:py3:cs:func/typing :funcName "examples_csu" :funcType "eType" :retType "" :deco "default" :argsList ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-eType    [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/ deco=default  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/  deco=default  [[elisp:(org-cycle)][| ]]
 #+end_org """
-@io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def examples_csu(
 ####+END:
         sectionTitle: typing.AnyStr = '',
@@ -249,12 +249,12 @@ The exit code is captured in cmndOutcome.exitCode.
         )
 
 
-####+BEGIN: bx:cs:py3:method :methodName "cmndArgsSpec" :methodType "anyOrNone" :retType "bool" :deco "default" :argsList ""
-    """
-**  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Method-anyOrNone :: /cmndArgsSpec/ retType=bool argsList=nil deco=default  [[elisp:(org-cycle)][| ]]
-#+end_org """
-    @io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-    def cmndArgsSpec(self):
+####+BEGIN: b:py3:cs:method/args :methodName "cmndArgsSpec" :methodType "anyOrNone" :retType "bool" :deco "default" :argsList "self"
+    """ #+begin_org
+**  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Mtd-T-anyOrNone [[elisp:(outline-show-subtree+toggle)][||]] /cmndArgsSpec/ deco=default  deco=default  [[elisp:(org-cycle)][| ]]
+    #+end_org """
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    def cmndArgsSpec(self, ):
 ####+END:
         """  #+begin_org
 ** [[elisp:(org-cycle)][| *cmndArgsSpec:* | ]]
@@ -277,11 +277,11 @@ The exit code is captured in cmndOutcome.exitCode.
         return cmndArgsSpecDict
 
 
-####+BEGIN: bx:cs:py3:func :funcName "subProcInFuncReturningOutcome" :funcType "extTyped" :deco "track"
+####+BEGIN: b:py3:cs:func/typing :funcName "subProcInFuncReturningOutcome" :funcType "extTyped" :deco "track"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-extTyped [[elisp:(outline-show-subtree+toggle)][||]] /subProcInFuncReturningOutcome/ deco=track  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-extTyped [[elisp:(outline-show-subtree+toggle)][||]] /subProcInFuncReturningOutcome/  deco=track  [[elisp:(org-cycle)][| ]]
 #+end_org """
-@io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def subProcInFuncReturningOutcome(
 ####+END:
         cmndStr: str,

@@ -64,7 +64,7 @@ Module description comes here.
 
 ####+BEGINNOT: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/importUcfIcmBleepG.py"
 from bisos.b import cs
-from bisos.b import io
+from bisos.b import b_io
 from bisos import b
 ####+END:
 
@@ -80,11 +80,11 @@ from  bisos.platform import bxPlatformConfig
 #+end_org """
 ####+END:
 
-####+BEGIN: bx:cs:py3:func :funcName "examples_csu" :funcType "eType" :retType "" :deco "default" :argsList ""
+####+BEGIN: b:py3:cs:func/typing :funcName "examples_csu" :funcType "eType" :retType "" :deco "default" :argsList ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-eType    [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/ deco=default  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/  deco=default  [[elisp:(org-cycle)][| ]]
 #+end_org """
-@io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def examples_csu(
 ####+END:
         sectionTitle: typing.AnyStr = '',
@@ -113,16 +113,16 @@ def examples_csu(
 
 ####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "platformConfigsUse" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<platformConfigsUse>>parsMand= parsOpt= argsMin=0 argsMax=0 pyInv=
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<platformConfigsUse>> ro=cli   [[elisp:(org-cycle)][| ]]
 #+end_org """
-class platformConfigsUse(b.cs.Cmnd):
+class platformConfigsUse(cs.Cmnd):
     cmndParamsMandatory = [ ]
     cmndParamsOptional = [ ]
     cmndArgsLen = {'Min': 0, 'Max': 0,}
 
-    @b.cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
-             rtInv: b.cs.RtInvoker,
+             rtInv: cs.RtInvoker,
              cmndOutcome: b.op.Outcome,
     ) -> b.op.Outcome:
 

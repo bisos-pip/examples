@@ -4,40 +4,42 @@
 * ~[Summary]~ :: =CS-Lib= providing examples of class, params & args definitions & Cmnd & RO invocations.
 #+end_org """
 
+####+BEGIN: b:py3:cs:file/dblockControls :classification "cs-u"
 """ #+begin_org
-* [[elisp:(org-cycle)][| /Control Parameters Of This File/ |]] :: dblock controls and classifications
+* [[elisp:(org-cycle)][| /Control Parameters Of This File/ |]] :: dblk ctrls classifications=cs-u
 #+BEGIN_SRC emacs-lisp
 (setq-local b:dblockControls t) ; (setq-local b:dblockControls nil)
-(put 'b:dblockControls 'py3:cs:Classification "cs-u") ; CS-Unit
+(put 'b:dblockControls 'py3:cs:Classification "cs-u") ; one of cs-mu, cs-u, cs-lib, bpf-lib, pyLibPure
 #+END_SRC
 #+RESULTS:
-: cs-u
+: cs-mu
 #+end_org """
+####+END:
 
 ####+BEGIN: b:prog:file/proclamations :outLevel 1
 """ #+begin_org
-* *[[elisp:(org-cycle)][| Proclamations |]]* :: Libre-Halaal Software --- Part Of Blee ---  Poly-COMEEGA Format.
-** This is Libre-Halaal Software. © Libre-Halaal Foundation. Subject to AGPL.
-** It is not part of Emacs. It is part of Blee.
-** Best read and edited  with Poly-COMEEGA (Polymode Colaborative Org-Mode Enhance Emacs Generalized Authorship)
+* *[[elisp:(org-cycle)][| Proclamations |]]* :: Libre-Halaal Software --- Part Of BISOS ---  Poly-COMEEGA Format.
+** This is Libre-Halaal Software. © Neda Communications, Inc. Subject to AGPL.
+** It is part of BISOS (ByStar Internet Services OS)
+** Best read and edited  with Blee in Poly-COMEEGA (Polymode Colaborative Org-Mode Enhance Emacs Generalized Authorship)
 #+end_org """
 ####+END:
 
 ####+BEGIN: b:prog:file/particulars :authors ("./inserts/authors-mb.org")
 """ #+begin_org
 * *[[elisp:(org-cycle)][| Particulars |]]* :: Authors, version
-** This File: NOTYET
+** This File: /bisos/git/auth/bxRepos/bisos-pip/examples/py3/bisos/examples/parsArgsStdinCmndResult_csu.py
 ** Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
 #+end_org """
 ####+END:
 
-####+BEGIN: b:python:file/particulars-csInfo :status "inUse"
+####+BEGIN: b:py3:file/particulars-csInfo :status "inUse"
 """ #+begin_org
 * *[[elisp:(org-cycle)][| Particulars-csInfo |]]*
 #+end_org """
 import typing
 csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['parsArgsStdinCmndResult_csu'], }
-csInfo['version'] = '202209205702'
+csInfo['version'] = '202209223018'
 csInfo['status']  = 'inUse'
 csInfo['panel'] = 'parsArgsStdinCmndResult_csu-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
@@ -45,10 +47,12 @@ csInfo['cmndParts'] = 'IcmCmndParts[common] IcmCmndParts[param]'
 ####+END:
 
 """ #+begin_org
-* [[elisp:(org-cycle)][| ~Description~ |]] :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/COMEEGA/_nodeBase_/fullUsagePanel-en.org][BISOS COMEEGA Panel]]
-Module description comes here.
+* [[elisp:(org-cycle)][| ~Description~ |]] :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/PyFwrk/bisos-pip/bisos.cs/_nodeBase_/fullUsagePanel-en.org][BISOS CmndSvcs Panel]]   [[elisp:(org-cycle)][| ]]
+Cmnds can be specified to take optional and mandatory parameters and arguments. Example of each is provided in this CSU.
+A Cmnd can be invoked locally or remotely. Examples are provided.
+Python can invoke a command locally or remotely. Examples are provided.
 ** Relevant Panels:
-** Status: In use with blee3
+** Status: In use with BISOS
 ** /[[elisp:(org-cycle)][| Planned Improvements |]]/ :
 *** TODO complete fileName in particulars.
 #+end_org """
@@ -60,21 +64,21 @@ Module description comes here.
 #+end_org """
 ####+END:
 
-####+BEGIN: b:python:file/workbench :outLevel 1
+####+BEGIN: b:py3:file/workbench :outLevel 1
 """ #+begin_org
 * [[elisp:(org-cycle)][| Workbench |]] :: [[elisp:(python-check (format "/bisos/venv/py3/bisos3/bin/python -m pyclbr %s" (bx:buf-fname))))][pyclbr]] || [[elisp:(python-check (format "/bisos/venv/py3/bisos3/bin/python -m pydoc ./%s" (bx:buf-fname))))][pydoc]] || [[elisp:(python-check (format "/bisos/pipx/bin/pyflakes %s" (bx:buf-fname)))][pyflakes]] | [[elisp:(python-check (format "/bisos/pipx/bin/pychecker %s" (bx:buf-fname))))][pychecker (executes)]] | [[elisp:(python-check (format "/bisos/pipx/bin/pycodestyle %s" (bx:buf-fname))))][pycodestyle]] | [[elisp:(python-check (format "/bisos/pipx/bin/flake8 %s" (bx:buf-fname))))][flake8]] | [[elisp:(python-check (format "/bisos/pipx/bin/pylint %s" (bx:buf-fname))))][pylint]]  [[elisp:(org-cycle)][| ]]
 #+end_org """
 ####+END:
 
-####+BEGIN: bx:cs:python:icmItem :itemType "=PyImports= " :itemTitle "*Py Library IMPORTS*"
+####+BEGIN: b:py3:cs:orgItem/basic :type "=PyImports= " :title "*Py Library IMPORTS*" :comment "-- with classification based framework/imports"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  =PyImports=  [[elisp:(outline-show-subtree+toggle)][||]] *Py Library IMPORTS*  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  =PyImports=  [[elisp:(outline-show-subtree+toggle)][||]] *Py Library IMPORTS* -- with classification based framework/imports  [[elisp:(org-cycle)][| ]]
 #+end_org """
 ####+END:
 
 ####+BEGIN: b:py3:cs:framework/imports :basedOn "classification"
 """ #+begin_org
-** Imports Based On Classification=cs-u
+** Imports Based On Classification=cs-mu
 #+end_org """
 from bisos import b
 from bisos.b import cs
@@ -83,22 +87,22 @@ from bisos.b import b_io
 import collections
 ####+END:
 
-####+BEGIN: bx:cs:py3:section :title "Common Parameters Specification"
+####+BEGIN: b:py3:cs:orgItem/section :title "Common Parameters Specification" :comment "based on cs.param.CmndParamDict -- As expected from CSU-s"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /Section/    [[elisp:(outline-show-subtree+toggle)][||]] *Common Parameters Specification*  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /Section/    [[elisp:(outline-show-subtree+toggle)][||]] *Common Parameters Specification* based on cs.param.CmndParamDict -- As expected from CSU-s  [[elisp:(org-cycle)][| ]]
 #+end_org """
 ####+END:
 
-####+BEGIN: bx:cs:py3:func :funcName "commonParamsSpecify" :funcType "ParSpec" :retType "" :deco "" :argsList "icmParams"
+####+BEGIN: b:py3:cs:func/typing :funcName "commonParamsSpecify" :comment "~CSU Specification~" :funcType "ParSpc" :deco ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-ParSpec  [[elisp:(outline-show-subtree+toggle)][||]] /commonParamsSpecify/  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-ParSpc [[elisp:(outline-show-subtree+toggle)][||]] /commonParamsSpecify/  ~CSU Specification~  [[elisp:(org-cycle)][| ]]
 #+end_org """
 def commonParamsSpecify(
 ####+END:
-        icmParams,
+        csParams: cs.param.CmndParamDict,
 ) -> None:
 
-    icmParams.parDictAdd(
+    csParams.parDictAdd(
         parName='par1Example',
         parDescription="Description of par1Example comes here",
         parDataType=None,
@@ -109,7 +113,7 @@ def commonParamsSpecify(
         argparseShortOpt=None,
         argparseLongOpt='--par1Example',
     )
-    icmParams.parDictAdd(
+    csParams.parDictAdd(
         parName='par2Example',
         parDescription="Description of par2Example comes here",
         parDataType=None,
@@ -120,17 +124,15 @@ def commonParamsSpecify(
         argparseLongOpt='--par2Example',
     )
 
-
-
-####+BEGIN: bx:cs:py3:section :title "CS-Lib Examples"
+####+BEGIN: b:py3:cs:orgItem/section :title "CSU-Lib Examples" :comment "-- Providing examples_csu"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /Section/    [[elisp:(outline-show-subtree+toggle)][||]] *CS-Lib Examples*  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /Section/    [[elisp:(outline-show-subtree+toggle)][||]] *CS-Lib Examples* -- Providing examples_csu  [[elisp:(org-cycle)][| ]]
 #+end_org """
 ####+END:
 
-####+BEGIN: b:py3:cs:func/typing :funcName "examples_csu" :funcType "eType" :retType "" :deco "default" :argsList ""
+####+BEGIN: b:py3:cs:func/typing :funcName "examples_csu" :comment "~CSU Specification~" :funcType "eType" :retType "" :deco "default" :argsList ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/ deco=default  deco=default   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/  ~CSU Specification~ deco=default  [[elisp:(org-cycle)][| ]]
 #+end_org """
 @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def examples_csu(
@@ -176,9 +178,9 @@ def examples_csu(
 #+end_org """
 ####+END:
 
-####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "parsArgsStdinCmndResult" :extent "default" :comment "stdin as input" :parsMand "par1Example" :parsOpt "par2Example" :argsMin 1 :argsMax 9999 :pyInv "methodInvokeArg"
+####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "parsArgsStdinCmndResult" :extent "verify" :comment "stdin as input" :parsMand "par1Example" :parsOpt "par2Example" :argsMin 1 :argsMax 9999 :pyInv "methodInvokeArg"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<parsArgsStdinCmndResult>> =stdin as input=parsMand=par1Example parsOpt=par2Example argsMin=1 argsMax=9999 ro=cli pyInv=methodInvokeArg
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<parsArgsStdinCmndResult>>  *stdin as input*  =verify= parsMand=par1Example parsOpt=par2Example argsMin=1 argsMax=9999 ro=cli pyInv=methodInvokeArg   [[elisp:(org-cycle)][| ]]
 #+end_org """
 class parsArgsStdinCmndResult(cs.Cmnd):
     cmndParamsMandatory = [ 'par1Example', ]
@@ -195,6 +197,10 @@ class parsArgsStdinCmndResult(cs.Cmnd):
              methodInvokeArg: typing.Any=None,   # pyInv Argument
     ) -> b.op.Outcome:
         """stdin as input"""
+        callParamsDict = {'par1Example': par1Example, 'par2Example': par2Example, }
+        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, argsList).isProblematic():
+            return b_io.eh.badOutcome(cmndOutcome)
+        cmndArgsSpecDict = self.cmndArgsSpec()
 ####+END:
         self.cmndDocStr(f""" #+begin_org
 ** [[elisp:(org-cycle)][| *CmndDesc:* | ]] This is an example of a CmndSvc with lots of features.
@@ -213,7 +219,20 @@ And that variable is then printed.
 Variations of this are captured as snippets to be used.
         #+end_org """)
 
-        cmndArgsSpecDict = self.cmndArgsSpec()
+        self.captureRunStr(""" #+begin_org
+#+begin_src sh :results output :session shared
+  csExamples.cs --par1Example="par1Mantory" --par2Example="par2Optional" -i parsArgsStdinCmndResult arg1 argTwo
+#+end_src
+#+RESULTS:
+:
+: cmndArgs= arg1  argTwo
+: stdin instead of methodInvokeArg =
+: cmndParams= par1Mantory par2Optional
+: OpError.Success
+        #+end_org """)
+
+        if self.justCaptureP(): return cmndOutcome
+
 
         action = self.cmndArgsGet("0", cmndArgsSpecDict, argsList)
         actionArgs = self.cmndArgsGet("1&9999", cmndArgsSpecDict, argsList)
@@ -244,7 +263,7 @@ After that, we print the results and then provide a result in =cmndOutcome=.
 
 ####+BEGIN: b:py3:cs:method/args :methodName "cmndArgsSpec" :methodType "anyOrNone" :retType "bool" :deco "default" :argsList "self"
     """ #+begin_org
-**  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Mtd-T-anyOrNone [[elisp:(outline-show-subtree+toggle)][||]] /cmndArgsSpec/ deco=default  deco=default   [[elisp:(org-cycle)][| ]]
+**  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Mtd-T-anyOrNone [[elisp:(outline-show-subtree+toggle)][||]] /cmndArgsSpec/ deco=default  deco=default  [[elisp:(org-cycle)][| ]]
     #+end_org """
     @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmndArgsSpec(self, ):
@@ -271,7 +290,7 @@ After that, we print the results and then provide a result in =cmndOutcome=.
 
 ####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "pyCmndInvOf_parsArgsStdinCmndResult" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<pyCmndInvOf_parsArgsStdinCmndResult>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=cli pyInv=
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<pyCmndInvOf_parsArgsStdinCmndResult>> ro=cli   [[elisp:(org-cycle)][| ]]
 #+end_org """
 class pyCmndInvOf_parsArgsStdinCmndResult(cs.Cmnd):
     cmndParamsMandatory = [ ]
@@ -290,8 +309,8 @@ class pyCmndInvOf_parsArgsStdinCmndResult(cs.Cmnd):
         #+end_org """)
 
         if not (results := parsArgsStdinCmndResult(cmndOutcome=cmndOutcome).cmnd(
-                cs.RtInvoker.new_py(),
-                cmndOutcome,
+                rtInv=cs.RtInvoker.new_py(),
+                cmndOutcome=cmndOutcome,
                 par1Example="py_par1Val",
                 argsList=['echo', 'py_arg2Val'],
                 methodInvokeArg="py method invoke arg"
@@ -302,7 +321,7 @@ class pyCmndInvOf_parsArgsStdinCmndResult(cs.Cmnd):
 
 ####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "roPyExInvoker" :ro "noCli"  :extent "verify" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<roPyExInvoker>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=noCli pyInv=
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<roPyExInvoker>>  =verify= ro=noCli   [[elisp:(org-cycle)][| ]]
 #+end_org """
 class roPyExInvoker(cs.Cmnd):
     cmndParamsMandatory = [ ]
@@ -345,7 +364,7 @@ class roPyExInvoker(cs.Cmnd):
 # VALUABLE CODE HERE
 ####+BEGINNOT: b:py3:cs:cmnd/classHead :cmndName "roPyExPerformer" :ro "py"  :extent "verify" :comment "" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<roPyExPerformer>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=py pyInv=
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc- _OVERWRITE_   [[elisp:(outline-show-subtree+toggle)][||]] <<roPyExPerformer>>parsMand= parsOpt= argsMin=0 argsMax=0 ro=py pyInv=
 #+end_org """
 class roPyExPerformer(cs.Cmnd):
     cmndParamsMandatory = [ ]
@@ -392,12 +411,13 @@ class roPyExPerformer(cs.Cmnd):
         return(cmndOutcome)
 
 
-
-
-####+BEGIN: b:prog:file/endOfFile :extraParams nil
+####+BEGIN: b:py3:cs:framework/endOfFile :basedOn "classification"
 """ #+begin_org
-* *[[elisp:(org-cycle)][| END-OF-FILE |]]* :: emacs and org variables and control parameters
+* [[elisp:(org-cycle)][| *End-Of-Editable-Text* |]] :: emacs and org variables and control parameters
 #+end_org """
+
+#+STARTUP: showall
+
 ### local variables:
 ### no-byte-compile: t
 ### end:

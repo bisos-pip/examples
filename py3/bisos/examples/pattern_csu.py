@@ -111,11 +111,11 @@ from bisos.transit import pattern
 ####+END:
 
 
-####+BEGIN: bx:cs:py3:func :funcName "examples_csu" :funcType "extTyped" :deco "track"
+####+BEGIN: b:py3:cs:func/typing :funcName "examples_csu" :funcType "extTyped" :deco "track"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-extTyped [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/ deco=track  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-extTyped [[elisp:(outline-show-subtree+toggle)][||]] /examples_csu/  deco=track  [[elisp:(org-cycle)][| ]]
 #+end_org """
-@b.io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def examples_csu(
 ####+END:
     sectionTitle: typing.AnyStr = "",
@@ -171,17 +171,6 @@ class sameInstanceEx(b.cs.Cmnd):
         print(f"{singeltonExB.param}")
 
         return cmndOutcome
-
-####+BEGIN: bx:cs:py3:method :methodName "cmndDocStr" :methodType "anyOrNone" :retType "bool" :deco "default" :argsList ""
-    """
-**  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Method-anyOrNone :: /cmndDocStr/ retType=bool argsList=nil deco=default  [[elisp:(org-cycle)][| ]]
-#+end_org """
-    @b.io.track.subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
-    def cmndDocStr(self):
-####+END:
-        return """
-***** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Description
-"""
 
 ####+BEGIN: bx:dblock:python:class :className "ClsA" :superClass "object" :comment "Example Class" :classType "basic"
 """ #+begin_org
