@@ -346,10 +346,11 @@ class roPyExInvoker(cs.Cmnd):
         # roPath
         roSapPath = "/bisos/var/cs/ro/sap/csExamples.cs/localhost/rpyc/default"
 
-        b_io.pr(f"{self.__class__.__name__} is constrained with noRo and can only run locally.")
+        # b_io.pr(f"{self.__class__.__name__} is constrained with noRo and can only run locally.")
+
         b_io.pr(f"{self.__class__.__name__} now pyInvokes a remote command at {roSapPath}")
 
-        # NOTYET, We should get back a outcome, but we are not.
+        # MB-2024-jan -- Works -- Was: NOTYET, We should get back a outcome, but we are not.
         roPyExPerformer().cmnd(
             rtInv=rtInv,
             cmndOutcome=cmndOutcome,
@@ -357,6 +358,9 @@ class roPyExInvoker(cs.Cmnd):
         )
 
         b_io.pr(f"{self.__class__.__name__} After remote execution.")
+
+        b_io.pr(f"{self.__class__.__name__} RESULT= {cmndOutcome.results}")
+
 
         return(cmndOutcome)
 
@@ -383,6 +387,7 @@ class roPyExPerformer(cs.Cmnd):
         if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
             return b_io.eh.badOutcome(cmndOutcome)
 
+        # Invoker runs this and returns outcome.
         if roSapPath:
             sapBaseFps = b.pattern.sameInstance(cs.ro.SapBase_FPs, roSapPath=roSapPath)
             portNu = sapBaseFps.fps_getParam('perfPortNu')
@@ -397,19 +402,23 @@ class roPyExPerformer(cs.Cmnd):
             )
             return outcome
 
-        # Remotely invoke this same command and return cmndOutcome
-
 ####+END:
         self.cmndDocStr(f""" #+begin_org
 ** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Example of using built-in features of an CMND in an ICM.
         #+end_org """)
 
-        b_io.pr(f"{self.__class__.__name__} is constrained with noRo and can only run locally.")
+        b_io.pr(f"{self.__class__.__name__} is constrained with noRo and can only run  on performer. (with no roSapPath)")
         b_io.pr(f"{self.__class__.__name__} is also enabled for remote py invokaction. And will run remotely when pyInvoked.")
 
+        cmndOutcome.set(
+            #opError=b.op.OpError.Success,
+            opError=None,
+            opResults=(f"{self.__class__.__name__} 22"),
+        )
 
-        return(cmndOutcome)
+        b_io.pr(f"{self.__class__.__name__} Returning: {cmndOutcome.error} {cmndOutcome.results}")
 
+        return cmndOutcome
 
 ####+BEGIN: b:py3:cs:framework/endOfFile :basedOn "classification"
 """ #+begin_org
