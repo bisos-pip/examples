@@ -6,13 +6,13 @@
 
 ####+BEGIN: bx:bsip:bash:seed-spec :types "seedPypiProc.sh"
 SEED="
-*  /[dblock]/ /Seed/ :: [[file:/bisos/core/bsip/bin/seedPypiProc.sh]] | 
+*  /[dblock]/ /Seed/ :: [[file:/bisos/core/bsip/bin/seedPypiProc.sh]] |
 "
 FILE="
-*  /This File/ :: /bisos/git/bxRepos/bisos-pip/examples/py2/pypiProc.sh 
+*  /This File/ :: /bisos/git/bxRepos/bisos-pip/examples/py3/pypiProc.sh
 "
 if [ "${loadFiles}" == "" ] ; then
-    /bisos/core/bsip/bin/seedPypiProc.sh -l $0 "$@" 
+    /bisos/core/bsip/bin/seedPypiProc.sh -l $0 "$@"
     exit $?
 fi
 ####+END:
