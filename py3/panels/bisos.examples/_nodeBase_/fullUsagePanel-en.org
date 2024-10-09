@@ -25,18 +25,45 @@
 ####+BEGIN: blee:bxPanel:terseTreeNavigator :panelsList "bxPanel"
 * [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:terseTreeNavigator)][dbf]]
 * +
+*   =Decedents=  :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.examples/README")][README]] *|*
 *                                        *━━━━━━━━━━━━━━━━━━━━━━━━*
-*   *Siblings*   :: [[elisp:(dired "/bisos/git/bxRepos/bisos-pip/examples/py3/bin")][ ~bin~ ]] *|* [[elisp:(dired "/bisos/git/bxRepos/bisos-pip/examples/py3/bisos")][ ~bisos~ ]] *|* [[elisp:(dired "/bisos/git/bxRepos/bisos-pip/examples/py3/bisos.examples.egg-info")][ ~bisos.examples.egg-info~ ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/git/bxRepos/bisos-pip/examples/py3/panels/_nodeBase_")][ =panels= ]] *|*
-*   /Ancestors/  :: [[elisp:(blee:bnsm:panel-goto "//bisos/git/bxRepos/bisos-pip/examples/py3")][py3]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/git/bxRepos/bisos-pip/examples/_nodeBase_")][ =examples= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/git/bxRepos/bisos-pip/_nodeBase_")][ =bisos-pip= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/git/bxRepos/_nodeBase_")][ = /<bxRepos>/ = ]] *|* [[elisp:(dired "//bisos/git")][ ~git~ ]] *|*
-*   /Ancestors/  :: [[elisp:(dired "//bisos")][ ~bisos~ ]] *|*
+*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.b/_nodeBase_")][ = /<bisos.b>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.basics/_nodeBase_")][ = /<bisos.basics>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.cmdb/_nodeBase_")][ = /<bisos.cmdb>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.common/_nodeBase_")][ = /<bisos.common>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.debian/_nodeBase_")][ = /<bisos.debian>/ = ]] *|*
+*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.examples/_nodeBase_")][ = /<bisos.examples>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.facter/_nodeBase_")][ = /<bisos.facter>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.py3-all/_nodeBase_")][ = /<bisos.py3-all>/ = ]] *|*
+*   /Ancestors/  :: [[elisp:(blee:bnsm:panel-goto "//bisos/panels/bisos-core/bisos-pip/_nodeBase_")][ =bisos-pip= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/bisos-core/_nodeBase_")][ =bisos-core= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/_nodeBase_")][ = /<panels>/ = ]] *|* [[elisp:(dired "//bisos")][ ~bisos~ ]] *|*
 *                                   _━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━_                          [[elisp:(org-shifttab)][<)]] E|
 ####+END
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :title "Overview" :anchor "Panel"
 * [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Overview:* |]] <<Panel>>   [[elisp:(org-shifttab)][<)]] E|
 ####+END
-**
+** +
 ** Overview Comes Here.
 ** B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Examples Executables Naming Convention" :anchor "" :extraInfo "exmpl-{pkg,}-{mu,sc,conv}-{ro,}-descripton.{cs,py}"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Examples Executables Naming Convention:* |]]  exmpl-{pkg,}-{mu,sc,conv}-{ro,}-descripton.{cs,py}  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** An example executable is used for these purposes:
+*** Explaining and usage teaching
+*** Template for re-use
+*** Regression Testing
+** Usual structure is:
+** ~exmpl-~ All examples files start with exmpl-
+** ~{pkg,}-~ When an example is specific to a pkg, pkg name is include, otherwise it is part of the examples pkg
+*** exmpl-b-basic.cs
+** ~{mu,sc,conv}-~  mu (multi unit) -- sc (Self-Contained) -- conv (conventional -- Not in COMEEGA)
+** ~{ro,}-~ Indicated that the Commands example is also a Service (Remote Operation)
+** ~description-~ Name od this example
+** ~{cs,py}~  cs (Command Service -- in COMEEGA),  py (Conventional -- not in COMEEGA)
+** -B|
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Design and Evolution" :anchor "" :extraInfo "TODOs and Ideas"
+* /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Design and Evolution:* |]]  TODOs and Ideas  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** +
+** TODO Redo exampl-b as a self-contained cs limited to b- capabilities.
+** TODO cleanup and complete exmpl-mu-many.cs -- Use it for regression testing
+** -B|
 ####+BEGIN: blee:bxPanel:separator :outLevel 1
 * /[[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]] [[elisp:(delete-other-windows)][|1]]/
 ####+END
