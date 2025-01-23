@@ -172,6 +172,8 @@ def examples_csu(
     cps = collections.OrderedDict() ; # cps['icmsPkgName'] = icmsPkgName
     cs.examples.cmndInsert(cmndName, cps, cmndArgs, verbosity='little')
 
+    # See /bisos/git/bxRepos/bisos-pip/capability/py3/bisos/capability/cbm_csu.py for an example of process Each
+
 
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep nil :title "CmndSvcs" :anchor ""  :extraInfo "Command Services Section"
 """ #+begin_org

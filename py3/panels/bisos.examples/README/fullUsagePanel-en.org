@@ -1,1 +1,1 @@
-/bisos/git/bxRepos/bisos-pip/examples/py3/README.org
+../../../../README.org
