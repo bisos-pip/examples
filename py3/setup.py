@@ -43,7 +43,7 @@ def longDescription():
 # b:py3:pypi:setup/version Arguments  :forSys t :forPyPi t :constant "666"
 ####+BEGIN: b:py3:pypi:setup/version :comment "Auto Detected"
 
-# ./pypiUploadVer DID NOT exist -- forPypiVersion=0.71 -- forSysVersion=0.7 -- constant=NA
+# ./pypiUploadVer DID NOT exist -- forPypiVersion=0.73 -- forSysVersion=0.7 -- constant=NA
 def pkgVersion():
         return '0.7'
 
@@ -54,11 +54,12 @@ def pkgVersion():
 
 requires = [
 "blee",
-"blee.icmPlayer",
+"bisos.csPlayer",
 "bisos",
 "bisos.b",
 "bisos.basics",
 "bisos.common",
+"bisos.csPlayer",
 "bisos.transit",
 ]
 ####+END:
@@ -86,7 +87,7 @@ data_files = [
 ####+BEGIN: b:py3:pypi:setup/funcArgs :comment "defaults to --auto--"
 
 setuptools.setup(
-    name=pkgName(),  # bisos.examples
+    name=pkgName(),  # 'bisos.examples'
     version=pkgVersion(),
     packages=setuptools.find_packages(),
     scripts=scripts,
@@ -97,11 +98,9 @@ setuptools.setup(
     author_email='libre@mohsen.1.banan.byname.net',
     maintainer='Mohsen Banan',
     maintainer_email='libre@mohsen.1.banan.byname.net',
-    url='http://www.by-star.net/PLPC/180047',
     license='AGPL',
     description=description(),
     long_description=longDescription(),
-    download_url='http://www.by-star.net/PLPC/180047',
     install_requires=requires,
     classifiers=[
         'Development Status :: 5 - Production/Stable',

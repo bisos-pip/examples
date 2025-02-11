@@ -112,7 +112,7 @@ import collections
 (setq  b:py:cs:csuList
   (list
    "bisos.b.cs.ro"
-   "blee.icmPlayer.bleep"
+   "bisos.csPlayer.bleep"
    "bisos.examples.pattern_csu"
    "bisos.examples.pyRunAs_csu"
    "bisos.examples.io_csu"
@@ -123,7 +123,7 @@ import collections
 #+END_SRC
 
 #+RESULTS:
-| bisos.b.cs.ro | blee.icmPlayer.bleep | bisos.examples.pattern_csu | bisos.examples.pyRunAs_csu | bisos.examples.io_csu | bisos.examples.parsArgsStdinCmndResult_csu | bisos.examples.subProcOps_csu | bisos.examples.platformConfigs_csu |
+| bisos.b.cs.ro | bisos.csPlayer.bleep | bisos.examples.pattern_csu | bisos.examples.pyRunAs_csu | bisos.examples.io_csu | bisos.examples.parsArgsStdinCmndResult_csu | bisos.examples.subProcOps_csu | bisos.examples.platformConfigs_csu |
 
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] /csuList emacs-list Specifications/  [[elisp:(blee:org:code-block/above-run)][Eval Above:]] [[elisp:(org-cycle)][| ]]
 
@@ -135,7 +135,7 @@ import collections
 #+end_org """
 
 from bisos.b.cs import ro
-from blee.icmPlayer import bleep
+from bisos.csPlayer import bleep
 from bisos.examples import pattern_csu
 from bisos.examples import pyRunAs_csu
 from bisos.examples import io_csu
@@ -144,7 +144,7 @@ from bisos.examples import subProcOps_csu
 from bisos.examples import platformConfigs_csu
 
 
-csuList = [ 'bisos.b.cs.ro', 'blee.icmPlayer.bleep', 'bisos.examples.pattern_csu', 'bisos.examples.pyRunAs_csu', 'bisos.examples.io_csu', 'bisos.examples.parsArgsStdinCmndResult_csu', 'bisos.examples.subProcOps_csu', 'bisos.examples.platformConfigs_csu', ]
+csuList = [ 'bisos.b.cs.ro', 'bisos.csPlayer.bleep', 'bisos.examples.pattern_csu', 'bisos.examples.pyRunAs_csu', 'bisos.examples.io_csu', 'bisos.examples.parsArgsStdinCmndResult_csu', 'bisos.examples.subProcOps_csu', 'bisos.examples.platformConfigs_csu', ]
 
 g_importedCmndsModules = cs.csuList_importedModules(csuList)
 
@@ -186,7 +186,7 @@ class examples(cs.Cmnd):
 
         cs.examples.commonBrief()
 
-        bleep.examples_icmBasic()
+        bleep.examples_csBasic()
 
         cs.examples.menuChapter('=Misc=  *Facilities*')
 
@@ -248,7 +248,7 @@ class examplesOld(cs.Cmnd):
 
         cs.examples.commonBrief()
 
-        bleep.examples_icmBasic()
+        bleep.examples_csBasic()
 
 
         cs.examples.menuChapter('=Misc=  *Facilities*')
