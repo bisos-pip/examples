@@ -84,7 +84,7 @@ import collections
 import os
 
 #from bisos.transit import runCallable
-from bisos.transit import sudoDeco
+from bisos.basics import sudoDeco
 #from bisos.transit import pyRunAs
 from bisos.basics import pyRunAs
 

@@ -100,7 +100,7 @@ from bisos.b import cs
 from bisos import b
 ####+END:
 
-from bisos.transit import pattern
+from bisos.basics import pattern
 
 #from bisos import examples
 
